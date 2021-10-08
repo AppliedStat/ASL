@@ -72,6 +72,7 @@ for ( j in seq_along(BETA1) ) {
 #===================================================
 # Theoretical power
 #---------------------------------------------------
+# t-test (sigma: unknown)
 Kt = function(beta1, alpha, Xi,sigma) { 
      n = length(Xi)
      Xbar = mean(Xi)

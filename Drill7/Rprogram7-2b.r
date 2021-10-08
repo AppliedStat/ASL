@@ -2,8 +2,8 @@
 # Note: Drill5 will be helpful for solving Drill7. 
 
 #===================================================
-# pdf(file="t-F-test.pdf", width=5.5, height=3.0)
-# par(mfrow=c(1,1), mar=c(4, 4, 1, 1), omi=c(0,0,0,0), cex=0.8, mex=0.8)
+ pdf(file="t-F-test.pdf", width=5.5, height=3.0)
+ par(mfrow=c(1,1), mar=c(4, 4, 1, 1), omi=c(0,0,0,0), cex=0.8, mex=0.8)
 #---------------------------------------------------
 
 
@@ -95,9 +95,8 @@ lines(BETA1, powert,     lty=1, col="pink3", lwd=1.0)
 lines(BETA1, sim.powert, lty=2, col="red3")
 lines(BETA1, sim.powerf, lty=2, col="blue")
 
-
 legend (-1.0,  1.02, legend=c( expression(K[t](beta[1])) ),
-        horiz=FALSE, bty="n", lty=c(1), lwd=1.0, col=c("pink3") )
+        horiz=FALSE, bty="n", lty=c(1), lwd=0.8, col=c("pink3") )
 legend (-0.01, 1.02, legend=c("Simulated Power (F-test)", "Simulated Power (t-test)"),  
         horiz=FALSE, bty="n", lty=c(2,2), col=c("blue", "red3") )
 

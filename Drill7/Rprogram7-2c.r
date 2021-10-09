@@ -2,7 +2,7 @@
 # Note: Drill5 will be helpful for solving Drill7. 
 
 #===================================================
-pdf(file="z-chisq-t-test.pdf", width=5.5, height=6.0)
+pdf(file="z-chisq-t-F-test.pdf", width=5.5, height=6.0)
 par(mfrow=c(1,1), mar=c(5, 5, 1, 1), omi=c(0,0,0,0), cex=0.6, mex=0.6)
 #---------------------------------------------------
 
@@ -45,7 +45,7 @@ for ( j in seq_along(BETA1) ) {
     }
 }
 
-# chisq test 
+# chisq-test 
 sim.powerchisq = numeric(length(BETA1))
 for ( j in seq_along(BETA1) ) { 
     beta0 = runif(1)                      # any number
@@ -115,7 +115,7 @@ for ( j in seq_along(BETA1) ) {
         MSR = sum( (Yihat-Ybar)^2 ) / (2-1)
         MSE = sum( (Yi - Yihat)^2 ) / (n-2)
         Fstat = MSR / MSE
-        F.cut = qf(1-alpha, df1=(2-1), df2=(n-2) )
+        F.cut = qf(1-alpha, df1=(2-1), df2=(n-2) )  # 1-alpha is used
         if ( Fstat > F.cut )  sim.powerf[j] = sim.powerf[j] + 1/ITER
     }
 }
@@ -127,6 +127,7 @@ for ( j in seq_along(BETA1) ) {
 #---------------------------------------------------
 # sigma known
 #---------------------------------------------------
+# z-test 
 Kz = function(beta1, alpha, Xi, sigma) { 
      n = length(Xi)
      Xbar = mean(Xi)
@@ -139,6 +140,7 @@ powerz = numeric(length(BETA1))
 for  ( j in seq_along(BETA1) ) powerz[j] = Kz(beta1= BETA1[j], alpha, Xi, sigma)
 
 
+# chisq-test 
 Kchisq = function(beta1, alpha, Xi, sigma) { 
      n = length(Xi)
      Xbar = mean(Xi)
@@ -154,6 +156,7 @@ for  ( j in seq_along(BETA1) ) powerchisq[j] = Kchisq(beta1=BETA1[j], alpha, Xi,
 #---------------------------------------------------
 # sigma unknown
 #---------------------------------------------------
+# t-test 
 Kt = function(beta1, alpha, Xi,sigma) { 
      n = length(Xi)
      Xbar = mean(Xi)
@@ -165,52 +168,67 @@ Kt = function(beta1, alpha, Xi,sigma) {
 powert = numeric(length(BETA1))
 for  ( j in seq_along(BETA1) ) powert[j] = Kt(beta1= BETA1[j], alpha, Xi, sigma)
 
-# Still, Homework
+# F-test 
+# Later 
+
 
 
 
 #===================================================
-# Comparing the above functions and simulations
+# Plots of the above functions and simulations
 #---------------------------------------------------
 plot(NA,NA, xlim=range(BETA1), ylim=c(0,1), type="n",
       xlab=expression(beta[1]), ylab="Power Function")
 abline(h=alpha, v=0, col="gold3", lwd=0.5)
 
 #--------------------
-# Theoretical powers
-#--------------------
-# sigma: known
-lines(BETA1,  powerz,     lty=1, col="black")
-points(BETA1, powerchisq, pch=20, col="cyan3", cex=0.8)
-
-# sigma: unknown
-lines(BETA1, powert,     lty=1, lwd=0.8, col="red2")
-
-#--------------------
 # Simulated powers
 #--------------------
 # sigma: known
-lines(BETA1,  sim.powerz,     lty=2, col="black", lwd=0.8)
-lines(BETA1,  sim.powerchisq, lty=1, col="cyan3", lwd=0.7)
+# z-test
+lines(BETA1, sim.powerz,     lty=2, col="black", lwd=0.8)
+# chisq-test
+lines(BETA1, sim.powerchisq, lty=1, col="cyan3", lwd=0.7)
 
 # sigma: unknown
+# t-test
 lines(BETA1, sim.powert, lty=2, lwd=0.8, col="red2")
+# F-test
 lines(BETA1, sim.powerf, lty=1, lwd=0.8, col="pink")
+
+#--------------------
+# Theoretical powers
+#--------------------
+# sigma: known
+# z-test
+ lines(BETA1, powerz,     lty=1, col="black")
+# chisq-test
+points(BETA1, powerchisq, pch=20, col="cyan3", cex=0.8)
+
+# sigma: unknown
+# t-test
+ lines(BETA1, powert,     lty=1, lwd=0.8, col="red2")
+# F-test
+# LATER 
 
 
 #--------------------
 # legends
 #--------------------
 # sigma: known
+# z-test and chisq-test (theoretical)
 legend (-1.70,  1.02, legend=c(expression(K[z](beta[1])), expression(K[chi^2](beta[1]))),
         horiz=FALSE, bty="n", lty=c(1,NA), pch=c(NA,20), lwd=0.7, cex=0.8, col=c("black","cyan3") )
-legend (-1.75,  0.97, legend=c("Simulated Power (z-test)", "Simulated Power (chisq-test)"),  cex=0.8, lwd=0.8, 
+
+# z-test and chisq-test (simulation)
+legend (-1.75,  0.97, legend=c("Simulated Power (z-test)", "Simulated Power (chisq-test)"),  cex=0.8, lwd=0.8,
         horiz=FALSE, bty="n", lty=c(2,1), col=c("black","cyan3") )
 
-
 # sigma: unknown
+# t-test and F-test (theoretical)
 legend (-1.70,  0.20, legend=c(expression(K[t](beta[1])), expression( paste(K[F](beta[1]), ": not yet"))),
         horiz=FALSE, bty="n", lty=c(1,NA), pch=c(NA,20), lwd=0.7, cex=0.8, col=c("red2","pink") )
+
+# t-test and F-test (simulation)
 legend (-1.75,  0.15, legend=c("Simulated Power (t-test)", "Simulated Power (F-test)"),
         horiz=FALSE, bty="n", lty=c(2,1), col=c("red2","pink"), lwd=0.8, cex=0.8 )
-

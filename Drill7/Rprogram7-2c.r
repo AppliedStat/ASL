@@ -192,7 +192,7 @@ lines(BETA1, sim.powerchisq, lty=1, col="cyan3", lwd=0.7)
 
 # sigma: unknown
 # t-test
-lines(BETA1, sim.powert, lty=2, lwd=0.8, col="red2")
+lines(BETA1, sim.powert, lty=2, lwd=0.8, col="red3")
 # F-test
 lines(BETA1, sim.powerf, lty=1, lwd=0.8, col="pink")
 
@@ -207,7 +207,7 @@ points(BETA1, powerchisq, pch=20, col="cyan3", cex=0.8)
 
 # sigma: unknown
 # t-test
- lines(BETA1, powert,     lty=1, lwd=0.8, col="red2")
+ lines(BETA1, powert,     lty=1, lwd=1.0, col="red3")
 # F-test
 # LATER 
 
@@ -227,11 +227,11 @@ legend (-1.75,  0.97, legend=c("Simulated Power (z-test)", "Simulated Power (chi
 # sigma: unknown
 # t-test and F-test (theoretical)
 legend (-1.70,  0.20, legend=c(expression(K[t](beta[1])), expression( paste(K[F](beta[1]), ": not yet"))),
-        horiz=FALSE, bty="n", lty=c(1,NA), pch=c(NA,20), lwd=0.7, cex=0.8, col=c("red2","pink") )
+        horiz=FALSE, bty="n", lty=c(1,NA), pch=c(NA,20), lwd=0.8, cex=0.8, col=c("red3","pink2") )
 
 # t-test and F-test (simulation)
 legend (-1.75,  0.15, legend=c("Simulated Power (t-test)", "Simulated Power (F-test)"),
-        horiz=FALSE, bty="n", lty=c(2,1), col=c("red2","pink"), lwd=0.8, cex=0.8 )
+        horiz=FALSE, bty="n", lty=c(2,1), col=c("red3","pink2"), lwd=0.8, cex=0.8 )
 
 # alpha (significance level)
 text(-1.0, 0.035, labels=expression(alpha==0.05))

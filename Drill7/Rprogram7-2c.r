@@ -33,7 +33,7 @@ for ( j in seq_along(BETA1) ) {
         Xbar = mean(Xi)
         Ybar = mean(Yi)
         Sxy = sum(Xi*Yi) - n*Xbar*Ybar
-        Sxx = sum(Xi^2)-n*Xbar^2
+        Sxx = sum(Xi^2) - n*Xbar^2
         
         b1hat = Sxy / Sxx
         b0hat = Ybar - b1hat*Xbar
@@ -56,7 +56,7 @@ for ( j in seq_along(BETA1) ) {
         Xbar = mean(Xi)
         Ybar = mean(Yi)
         Sxy = sum(Xi*Yi) - n*Xbar*Ybar
-        Sxx = sum(Xi^2)-n*Xbar^2
+        Sxx = sum(Xi^2) - n*Xbar^2
 
         b1hat = Sxy / Sxx
         b0hat = Ybar - b1hat*Xbar
@@ -82,7 +82,7 @@ for ( j in seq_along(BETA1) ) {
         Xbar = mean(Xi)
         Ybar = mean(Yi)
         Sxy = sum(Xi*Yi) - n*Xbar*Ybar
-        Sxx = sum(Xi^2)-n*Xbar^2
+        Sxx = sum(Xi^2) - n*Xbar^2
 
         b1hat = Sxy / Sxx
         b0hat = Ybar - b1hat*Xbar
@@ -106,7 +106,7 @@ for ( j in seq_along(BETA1) ) {
         Xbar = mean(Xi)
         Ybar = mean(Yi)
         Sxy = sum(Xi*Yi) - n*Xbar*Ybar
-        Sxx = sum(Xi^2)-n*Xbar^2
+        Sxx = sum(Xi^2) - n*Xbar^2
 
         b1hat = Sxy / Sxx
         b0hat = Ybar - b1hat*Xbar
@@ -131,7 +131,7 @@ for ( j in seq_along(BETA1) ) {
 Kz = function(beta1, alpha, Xi, sigma) { 
      n = length(Xi)
      Xbar = mean(Xi)
-     Sxx =  (sum(Xi^2)-n*Xbar^2)
+     Sxx = sum(Xi^2) - n*Xbar^2
      tmp = beta1 / (sigma/sqrt(Sxx))
      z.cut = qnorm(1-alpha/2 )
      pnorm(z.cut+tmp, lower.tail=FALSE) + pnorm(-z.cut+tmp)
@@ -144,7 +144,7 @@ for  ( j in seq_along(BETA1) ) powerz[j] = Kz(beta1= BETA1[j], alpha, Xi, sigma)
 Kchisq = function(beta1, alpha, Xi, sigma) { 
      n = length(Xi)
      Xbar = mean(Xi)
-     Sxx =  (sum(Xi^2)-n*Xbar^2)
+     Sxx = sum(Xi^2) - n*Xbar^2
      delta = beta1^2*Sxx / sigma^2
      chisq.cut = qchisq(1-alpha, df=(2-1) )
      1-pchisq(chisq.cut, df=(2-1), ncp = delta)
@@ -160,7 +160,7 @@ for  ( j in seq_along(BETA1) ) powerchisq[j] = Kchisq(beta1=BETA1[j], alpha, Xi,
 Kt = function(beta1, alpha, Xi,sigma) { 
      n = length(Xi)
      Xbar = mean(Xi)
-     Sxx =  (sum(Xi^2)-n*Xbar^2)
+     Sxx = sum(Xi^2) - n*Xbar^2
      ncp = beta1 / (sigma/sqrt(Sxx))
      t.cut = qt(1-alpha/2, df=(n-2) )
      pt(t.cut,df=n-2,ncp=ncp, lower.tail=FALSE) + pt(-t.cut,df=n-2,ncp=ncp)
@@ -177,7 +177,7 @@ for  ( j in seq_along(BETA1) ) powert[j] = Kt(beta1= BETA1[j], alpha, Xi, sigma)
 #===================================================
 # Plots of the above functions and simulations
 #---------------------------------------------------
-plot(NA,NA, xlim=range(BETA1), ylim=c(0,1), type="n",
+plot(NA,NA, xlim=range(BETA1),  ylim=c(0,1), type="n",
       xlab=expression(beta[1]), ylab="Power Function")
 abline(h=alpha, v=0, col="gold3", lwd=0.5)
 
@@ -201,13 +201,13 @@ lines(BETA1, sim.powerf, lty=1, lwd=0.8, col="pink")
 #--------------------
 # sigma: known
 # z-test
- lines(BETA1, powerz,     lty=1, col="black")
+ lines(BETA1, powerz,     lty=1,  col="black")
 # chisq-test
 points(BETA1, powerchisq, pch=20, col="cyan3", cex=0.8)
 
 # sigma: unknown
 # t-test
- lines(BETA1, powert,     lty=1, lwd=1.0, col="red3")
+ lines(BETA1, powert,     lty=1,  lwd=1.0, col="red3")
 # F-test
 # LATER 
 

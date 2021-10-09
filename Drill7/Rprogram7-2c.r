@@ -232,3 +232,6 @@ legend (-1.70,  0.20, legend=c(expression(K[t](beta[1])), expression( paste(K[F]
 # t-test and F-test (simulation)
 legend (-1.75,  0.15, legend=c("Simulated Power (t-test)", "Simulated Power (F-test)"),
         horiz=FALSE, bty="n", lty=c(2,1), col=c("red2","pink"), lwd=0.8, cex=0.8 )
+
+# alpha (significance level)
+text(-1.0, 0.035, labels=expression(alpha==0.05))

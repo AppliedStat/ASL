@@ -27,6 +27,7 @@ iter = 10000
 mu = 10
 sigma = 5
 x = sort( rnorm(iter, mu, sigma) )
+y = sort( rt(iter, df=5) )
 
 z = qnorm( ppoints(iter) ) 
 #   qnorm( (1:iter-0.5)/iter ) ### <- same as the above
@@ -41,6 +42,10 @@ abline(h=0, v=0, col="green")
 # shapiro.test is based on this idea
 # The higher correlation between z and z, 
 # the more likely x belongs to the normal dist.
+
+# Let's compare y and z
+
+qqplot(y,z)
 
 
 

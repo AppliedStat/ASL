@@ -1,0 +1,124 @@
+%----------------------------------------------------
+\subsection{Weibull random variable}
+%----------------------------------------------------
+
+\begin{frame}
+\frametitle{Weibull random variable}
+\begin{itemize}
+\item One of the most popular distributions used to model the lifetimes and reliability data
+is the Weibull distribution, named after a Swedish \textbf{mechanical engineer} by the name of
+Walodie Weibull~\citeyear{Weibull:1939}.
+\item Indeed, this distribution is as central to the parametric analysis of 
+\textbf{reliability engineering} and \textbf{survival} data as the normal distribution in statistics.
+\end{itemize}
+\end{frame}
+
+%------
+\begin{frame}
+\frametitle{Weibull random variable}
+\begin{block}{Definition}
+A random variable $X$ is called \textsf{Weibull} with shape $\alpha$
+and scale $\beta$
+if its cumulative distribution function is given by
+$$
+F(x) = 1 - \exp\Big\{ - \big( \frac{x}{\beta} \big)^{\alpha}   \Big\},
+\qquad x \ge 0.
+$$
+\end{block}
+It is easily shown that its pdf is given by
+$$
+f(x) =  \frac{\alpha x^{\alpha-1}}{\beta^\alpha} 
+        \exp\Big\{ - \big( \frac{x}{\beta} \big)^{\alpha} \Big\}.
+$$
+The mean of the Weibull random variable is
+$\beta\cdot\Gamma\big[ (\alpha+1)/\alpha \big]$, where
+$\Gamma(\alpha)=\int_0^{\infty} x^{\alpha-1} e^{-x} dx$.
+\end{frame}
+%------
+
+%------
+\begin{frame}
+\frametitle{Weibull random variable}
+\begin{block}{Reparameterized Form}
+The following reparameterized form is often used
+%---------
+\begin{align*}
+F(x) = 1 - \exp\big( - \lambda x^{\alpha}  \big)  \textrm{~~and~~} 
+f(x) = \lambda\alpha x^{\alpha-1} \exp\big( - \lambda x^{\alpha}  \big),
+\end{align*}
+\end{block}
+%---------
+where $\lambda=\beta^{-\alpha}$. 
+\begin{itemize}
+\item The parameter $\lambda$ is called the \textsf{rate parameter}\index{rate parameter}.
+\item It should be noted that with the shape parameter $\alpha=1$, the Weibull distribution
+becomes the exponential distribution\index{exponential distribution}
+with mean $\beta$ (or rate $\lambda$).
+\end{itemize}
+\end{frame}
+%------
+
+
+%----------------------------------------------------
+\subsection{How to draw Weibull probability plot}
+%----------------------------------------------------
+
+%------
+\begin{frame}
+\frametitle{How to draw Weibull probability plot}
+
+{\Large\bf Basic Idea:} Linearizing the CDF.
+
+\end{frame}
+%------
+
+%------
+\begin{frame}
+\frametitle{How to draw Weibull probability plot}
+The Weibull cdf is given by
+$$
+F(x) = 1 - \exp\big( - \lambda x^{\alpha}  \big). 
+$$
+Then we have
+$$
+\log(1-p) = -\lambda x_p^{\alpha}, 
+$$
+where $p=F(x)$. It follows that
+$$
+\log\big\{ -\log(1-p) \big\} = \log\lambda + \alpha \log x_p.
+$$
+This implies that the plot of  
+\begin{block}{}
+\begin{center}
+\fbox{$\log\big\{ -\log(1-p) \big\}$} versus \fbox{$\log x_p$} 
+\end{center}
+\end{block}
+draws a straight line with the slope $\alpha$ and the intercept $\log\lambda$.
+The widely-used Weibull \textit{probability paper}\index{probability paper}
+is based on this idea.
+\end{frame}
+%------
+
+
+
+\begin{frame}
+\frametitle{How to draw Weibull probability plot}
+\begin{itemize}
+\item Need to find $p=F(x)$ and $x_p$ with real experimental data. 
+That is, we need to estimate  $p=F(x)$ and $x_p$ in the following plot:
+\item The empirical cdf $\hat{F}(x)$ is used for $p=F(x)$ which is an increasing
+ step function jumping $1/n$ at
+$x_{(1)}, x_{(2)}, \ldots, x_{(n)}$, where $x_{(i)}$ is sorted from the smallest. 
+\item Thus $\hat{p}_i=\hat{F}(x_{(i)})$ has values, $1/n, 2/n, \ldots, n/n$. 
+
+\begin{block}{}
+\begin{center}
+\fbox{$\log\big\{ -\log(1- \hat{p}_i ) \big\}$} versus \fbox{$\log x_{(i)} $}.
+\end{center}
+\end{block}
+ Actually, \cite{Blom:1958} method is more popular, which uses 
+$\hat{p}_i= (i-0.375)/(n+0.25)$ to have better power -- plotting position problem.
+\end{itemize}
+\end{frame}
+%------
+

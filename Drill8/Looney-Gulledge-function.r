@@ -53,13 +53,54 @@ set.seed(1); EPP2(n=3, levels=c(0.05, 0.01, 0) )
 #
 
 
+#=============================================================
+# Testing speeds
 #-------------------------------------------------------------
-# iter = 10000
-system.time( EPP1(n=3))
-system.time( EPP2(n=3))
-
+# small n
+#-------------------------------------------------------------
+# iter = 1E3 
+system.time( EPP1(n=3, iter=1E3) )
+system.time( EPP2(n=3, iter=1E3) )  # a little bit better 
 
 # iter = 1E5
-system.time( EPP1(n=3, iter=1E5))
-system.time( EPP2(n=3, iter=1E5))
+system.time( EPP1(n=3, iter=1E5) )   
+system.time( EPP2(n=3, iter=1E5) )  # better 
+
+# iter = 1E6 (try at home)
+system.time( EPP1(n=3, iter=1E6) )   
+system.time( EPP2(n=3, iter=1E6) )  # much better 
+
+
+#-------------------------------------------------------------
+# very large n
+#-------------------------------------------------------------
+# iter = 1E3
+system.time( EPP1(n=1000, iter=1E3) )
+system.time( EPP2(n=1000, iter=1E3) )   # Worse 
+
+# iter = 1E4 
+system.time( EPP1(n=1000, iter=1E4) )
+system.time( EPP2(n=1000, iter=1E4) )   # Worse 
+
+# iter = 1E5 
+system.time( EPP1(n=1000, iter=1E5) )   
+system.time( EPP2(n=1000, iter=1E5) )  # a little bit better 
+
+# iter = 1E6  (check at home due to long execution time)
+system.time( EPP1(n=1000, iter=1E6) )
+system.time( EPP2(n=1000, iter=1E6) )  # Memory problem
+
+
+#-------------------------------------------------------------
+# Conclusion
+#-------------------------------------------------------------
+#
+# EPP1 is OK when iter is small. 
+# EPP2 outperforms when iter >>> n. (In practice, we need this).
+# 
+# Why does it happen?
+#   
+
+
+
 

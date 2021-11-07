@@ -1,30 +1,6 @@
-<h2>
-```diff
-- text in red
-+ text in green
-! text in blue 
-# text in gray
-@@ text in purple (and bold)@@
-```
-</h2>
-
-```diff -D- ``` ```diff -E- ```
-
-
--! Warning !-
-
-
 # Applied Statistics Lab (ASL) 
 
-# Color Test Document
-
-<style>H1{color:Blue;}</style>
-<style>H2{color:DarkOrange;}xxxx</style>
-<style>p{color:Black;}</style>
-
-# <span style="color:blue">청</span>출어<span style="color:green">람</span>
-
-![#1589F0](https://via.placeholder.com/15/1589F0/000000?text=+)`청`출어![#1589F0](https://via.placeholder.com/15/1589F0/000000?text=+)`청`
+<img src="https://raw.githubusercontent.com/AppliedStat/AppliedStat.github.io/33bd7ff36c0bae105239bcdbdb278e5c5fa2b8ec/images/image-alignment-1200x4002.jpg" alt="MarineGEO circle logo" style="height: 100px; width:100px;"/>
 
 ## This is for ASL group study.
 

@@ -1,6 +1,6 @@
 # Applied Statistics Lab (ASL) 
 
-<img src="https://raw.githubusercontent.com/AppliedStat/AppliedStat.github.io/33bd7ff36c0bae105239bcdbdb278e5c5fa2b8ec/images/image-alignment-1200x4002.jpg" alt="MarineGEO circle logo" style="height: 100px; width:100px;"/>
+<img src="https://github.com/AppliedStat/AppliedStat.github.io/blob/ba4d80f83059affebe4db93d48d75f08117ee82a/images/cheongchul.png" alt="靑出於藍" style="height:500px;"/>
 
 ## This is for ASL group study.
 

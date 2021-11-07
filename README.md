@@ -1,12 +1,16 @@
 ```diff
 - text in red
 + text in green
-! text in orange
+! text in blue 
 # text in gray
 @@ text in purple (and bold)@@
 ```
 
-+( Venisons dear isn't it? )+
+!~ Dwarf Shortage ~!
+
+-! Warning !-
+
+#=- Stationary Store Moves -=#
 
 # Applied Statistics Lab (ASL) 
 

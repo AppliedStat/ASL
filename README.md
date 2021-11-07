@@ -1,3 +1,4 @@
+<h2>
 ```diff
 - text in red
 + text in green
@@ -5,8 +6,13 @@
 # text in gray
 @@ text in purple (and bold)@@
 ```
+</h2>
 
+```diff
 !~ Dwarf Shortage ~!
+```
+
+<font color="red">Status: **Not yet implemented**</font>
 
 -! Warning !-
 

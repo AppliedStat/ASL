@@ -8,15 +8,11 @@
 ```
 </h2>
 
-```diff
-!~ Dwarf Shortage ~!
-```
+```diff -D- ``` ```diff -E- ```
 
-<font color="red">Status: **Not yet implemented**</font>
 
 -! Warning !-
 
-#=- Stationary Store Moves -=#
 
 # Applied Statistics Lab (ASL) 
 

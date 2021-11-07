@@ -2,7 +2,7 @@
 
 # <span style="color:blue">청</span>출어<span style="color:green">람</span>
 
-![#1589F0](https://via.placeholder.com/15/1589F0/000000?text=+)`청`출어![#1589F0](https://via.placeholder.com/15/1589F0/000000?text=+)`청`
+![#1589F0](https://via.placeholder.com/15/1589F0/000000?text="청")`청`출어![#1589F0](https://via.placeholder.com/15/1589F0/000000?text=+)`청`
 
 ## This is for ASL group study.
 

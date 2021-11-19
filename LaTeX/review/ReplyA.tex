@@ -1,0 +1,188 @@
+\documentclass[10pt,a4paper]{article}
+\usepackage[total={6.00in, 9.5in}]{geometry}
+\emergencystretch 2.5em
+%%-------------------------------------------------
+\usepackage{natbib,xcolor,graphicx}
+\usepackage{hyperref,url}
+\usepackage{amsfonts, amsbsy, amssymb, amsmath}
+\renewcommand{\baselinestretch}{1.25}
+\renewcommand{\thetable}{\Alph{table}}
+\renewcommand{\thefigure}{\Alph{figure}}
+%==========================================================
+% DEFINITION for response function
+\usepackage[framemethod=TikZ]{mdframed}
+\newenvironment{response}[1][]{%
+\ifstrempty{#1}%
+{\mdfsetup{%
+frametitle={%
+\tikz[baseline=(current bounding box.east),outer sep=0pt]
+\node[anchor=east,rectangle,fill=red!10]
+{\strut{\small Response}};}}
+}%
+{\mdfsetup{%
+frametitle={%
+\tikz[baseline=(current bounding box.east),outer sep=0pt]
+\node[anchor=east,rectangle,fill=red!10]
+{\strut{\small Response}};}}%
+}%
+\mdfsetup{innertopmargin=0.5pt,linecolor=red!10,%
+linewidth=2pt,topline=true,%
+backgroundcolor=red!1!white,%
+frametitleaboveskip=\dimexpr-\ht\strutbox\relax
+}
+\begin{mdframed}[]\relax%
+\label{#1}}{\end{mdframed}}
+% END of response function
+% \begin{mdframed}[backgroundcolor=red!1!white, linecolor=red!25!white]
+%==========================================================
+
+
+%=========================================================================
+\begin{document}
+%%%=================================================
+
+
+%=================================================
+\section*{\LARGE\centering Responses to Reviewer \# 1}
+%%=================================================
+\begin{itshape}
+This paper presented robust methods for estimation of geometric distribution parameters and a g chart for statistical monitoring.
+The paper is well written and the derivations are sound. I have following suggestions:
+\end{itshape}
+%----------------
+%----------------
+\begin{response}
+We would like to express our sincere thanks to you for your constructive and positive comments. According to your valuable comments, we have carefully addressed your comments point by point in the revised manuscript as below.
+\end{response}
+%----------------
+
+\bigskip\hrule\bigskip
+
+
+%-----------------------------------
+\begin{enumerate}
+%-----------------------------------
+\item All the case studies are simulation based. Some real dataset and application are needed.
+\begin{response}
+Thank you for your valuable suggestion. In Section 4, we added one more example with real data set analyzed by \cite{Jacquez/Waller/Grimson/Wartenberg:1996} and \cite{Benneyan:2001a}. Please refer to the red paragraphs on page 11 and Figure 2 on page 12 for details.
+\end{response}
+
+\item The influence of sample size on these estimation methods are needed.
+\begin{response}
+Thank you for your great comments. We fully agree with your comments and added more simulation results with increased sample sizes in Section 5. Numerical results from simulations showed that as the sample size increases, the values of the bias, the variance and the MSE get smaller,
+whereas the RE values do not change much for both uncontaminated and contaminated cases. We here refer to the reviewer to the red paragraphs on page 18, Figures 6 and 7 on page 19, Table 8 on page 20, Table 9 on page 21, Figure 8 on page 22 for details. In addition, we have added some remarks (red parts) in the Section of concluding remarks.
+\end{response}
+\item What if we first use some outlier detection technique to remove outliers
+      and then use the conventional ML method for the estimation?
+      Comparing with the proposed robust method, what if we use such a two step procedure?
+\begin{response}
+Thank you for your constructive comment. It is know that this is a long-standing issue about data screening.
+The references below can be an answer to this issue.
+
+\url{https://www.itl.nist.gov/div898/handbook/eda/section3/eda35h.htm}
+
+\url{https://en.wikipedia.org/wiki/Robust_statistics}
+
+Traditionally, statisticians would manually screen data for outliers, and remove them,
+usually checking the source of the data to see whether the outliers were erroneously recorded.
+For the case of the Newcomb's speed-of-light example in Table 5 of \cite{Stigler:1977},
+it is easy to see and detect the outliers prior to proceeding with any further analysis.
+However, in modern times, real-data sets often consist of large numbers of variables being measured
+on large numbers of experimental units.
+Therefore, manual screening for outliers may be impractical. Thus, it seems beneficial to provide practitioners with
+some robust estimators for the in-control parameter of the control charts.
+\end{response}
+%-----------------------------------
+\end{enumerate}
+%-----------------------------------
+
+
+\clearpage
+%=================================================
+\section*{\LARGE\centering Responses to Reviewer \# 2}
+%%=================================================
+\begin{itshape}
+The author(s) proposed two robust estimators for the geometric distribution
+and developed g-type quality control charts to monitor the number of conforming cases
+between the two consecutive appearances of nonconformities.
+The manuscript is well-written and smooth to read.
+The methods are interesting and of good value.
+However, there are two big concerns that need to be addressed.
+\end{itshape}
+%----------------
+\begin{response}
+Thank you so much for your constructive and positive comments. According to your valuable comments, we have carefully addressed your comments point by point in the revised manuscript as below.
+\end{response}
+%----------------
+
+\bigskip\hrule\bigskip
+
+%-----------------------------------
+\begin{enumerate}
+%-----------------------------------
+\item
+The author(s) proposed general estimators that work for any location shift
+$a$ (as stated in line 17, page 4).
+Yet only the regular cases that $a=1$ and $a=0$ are considered in Section 4 and Section 5 respectively.
+It is suggested to consider values except for 0 and 1 to validate the effectiveness
+and generality of the proposed methods.
+\begin{response}
+Thank you for your valuable comment. In this paper, we mainly focus on the regular cases that $a=1$ and $a=0$, since to our knowledge, the current existing control charts for the geometric distribution are based only on two regular cases: a = 1 (for example, \citeauthor{Quesenberry:1995b} \citeyear{Quesenberry:1995b}) and a = 0 (for example, \citeauthor{Yang/etc:2002} \citeyear{Yang/etc:2002}). The main objective of this paper is develop two robust estimators for the process parameter and then construct robust $g$-type quality control charts to monitor the number of occurrences of a given event in production processes, so we did not pursue such study in this direction. However, we fully agree with your comment that there are several cases of using different values of $a$. Thus, in the revision, we briefly discuss theses cases for the sake of completeness. We here refer the reviewer to the red parts on page 5 for details. Again, thank you for your great comment.
+
+%However, we can notice that there exist some other articles using different values of $a$. In the updated version, we briefly introduced these cases.
+\end{response}
+
+%-----------------------------------
+\item
+The application to real data is very important to show the effectiveness of the proposed methods.
+Although it is stated in the abstract that ``a real-data application'' is illustrated,
+data of the illustrative example in Section 4 are actually artificially
+simulated data instead of from a real case.
+Those data are ``generated from the geometric distribution with $p=0.2$ and $a=1$''
+as stated in page 7 and 8. The author(s) are suggested to apply the proposed methods to a ``real'' case.
+\begin{response}
+Thanks for your great suggestion about a real-data application, which is raised by another reviewer. Thus, in Section 4, we added one more example with real data set analyzed by \cite{Jacquez/Waller/Grimson/Wartenberg:1996} and \cite{Benneyan:2001a} for illustrative purposes. Please refer to the red paragraphs on page 11 and Figure 2 on page 12 for details.
+
+It deserves mentioning that in the revision, we still keep the analysis of the data set (the first data in Section 4 of the revision) provided by \cite{Kaminsky/etc:1992}, since this data was firstly studied by these authors who originally developed the Shewhart-type statistical control chart based on the geometric distribution.
+\end{response}
+
+%-----------------------------------
+\end{enumerate}
+%-----------------------------------
+
+
+\clearpage
+%=================================================
+\section*{\LARGE\centering Responses to Reviewer \# 3}
+%%=================================================
+This manuscript develops two estimators for the process parameters of a $g$-type quality control chart.
+First of all, there is a lack of in-depth discussion in Literature Review Section.
+The authors failed to summarize the main gaps between state-of-the-art and engineering expectations.
+In addition, the proposed analysis is based on some simple manipulation of geometric probability equations.
+The work is considered as an simply application of some technique to an engineering problem.
+
+\begin{response}
+Thank you for your constructive comments. According to your valuable comments, we have significantly rewritten the Introduction section in the revision to provide a complete recent literature review and summarize some gaps between state-of-the-art and engineering expectations. We here refer the reviewer to the red parts on pages 2 and 3 for details.
+
+It is worth noting that there exist good robust methods for estimating \emph{location} and \emph{scale} estimators
+under \emph{symmetric} distributions. However, to the  best of our knowledge, we are unable to find an appropriate robust estimator (especially Bernoulli probability parameter) when a distribution is not symmetric. Therefore, it seems beneficial to provide practitioners with
+some robust estimators for the in-control parameter and to study the effect of parameter
+estimation on the performance of the resulting control charts. This observation motivated us to develop two robust estimators for the process parameter and then construct robust $g$-type quality control charts to monitor the number of occurrences of a given event in production processes, given that accurate parameter estimation is usually difficult and may require a larger sample size than the one available in practical engineering applications.
+
+To be more specific, we first developed a new method for estimating the unknown parameter based on the memoryless property of the geometric distribution. We acknowledge that the second method can be considered as some simple manipulation of the existing method. However, it deserves mentioning that we carried our extensive simulation studies and real-data applications to investigate the performance of these methods under considerations. Numerical results showed somewhat surprising results. For example, the conventional $g$ chart is extremely vulnerable to data contamination (even with a single outlier), so that its performance degrades seriously.
+To further investigate this phenomenon, we used the relative efficiency and influence ideas, etc. from our humble viewpoint, we believe that the proposed methods are simple but very effective and useful for field engineers and practitioners. In addition, we are planning to add the proposed methods in the existing \texttt{rQCC} R package~\citep{Park/Wang:2020b}
+can be easily and conveniently implemented by field engineers and practitioners to monitor the state of the process.
+\end{response}
+
+
+
+%%===============================================
+%% \bigskip \bigskip \bigskip \bigskip \bigskip
+\clearpage
+%%\bibliographystyle{chicago}
+\bibliographystyle{apalike}
+\bibliography{REF}
+%%===============================================
+%%=================================================
+\end{document}
+%%=================================================

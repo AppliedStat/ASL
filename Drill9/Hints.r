@@ -50,7 +50,7 @@ c(pbinom(r-1, n,p), 1-pnbinom(n-r,r,p) )
 
 # NOTE: wiki (Cumulative distribution function)
 # https://en.wikipedia.org/wiki/Negative_binomial_distribution
-# It works with p=1/2.
+# It works only with p=1/2.
 # p=1/2 
 k = 2
 c(pnbinom(k, r, p), pbinom(k, k+r,p) )

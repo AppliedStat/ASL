@@ -28,11 +28,11 @@ ITER = 100000L
 countA = countB = 0L
  
 for ( i in seq_len(ITER) ) {
-     X = runif(n)
-     if ( sum(X <= p) <= k ) countA = countA + 1L
+     U = runif(n)
+     if ( sum(U <= p) <= k ) countA = countA + 1L
  
-     Y = sort(X)
-     if( Y[k+1L] > p ) countB= countB + 1L
+     Y = sort(U)
+     if( Y[k+1L] > p ) countB = countB + 1L
 }
 countA / ITER
 countB / ITER
